@@ -1,0 +1,5 @@
+api_login_check:
+  path: /api/login/subscribers
+
+api_refresh_token:
+  path: /api/token/refresh

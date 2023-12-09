@@ -1,0 +1,26 @@
+parameters:
+
+services:
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  _instanceof:
+    App\Common\CQRS\Handler\CommandHandler:
+      tags:
+        - { name: messenger.message_handler, bus: command.bus }
+
+    App\Common\CQRS\Handler\EventHandler:
+      tags:
+        - { name: messenger.message_handler, bus: event.bus }
+
+    App\Common\CQRS\Handler\QueryHandler:
+      tags:
+        - { name: messenger.message_handler, bus: query.bus }
+
+  App\Core\:
+    resource: '../../src/Core/*'
+    exclude:
+      - '../../src/Core/*/DependencyInjection/'
+      - '../../src/Core/*/Entity/'

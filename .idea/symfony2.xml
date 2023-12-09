@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Symfony2PluginSettings">
+    <option name="directoryToApp" value="" />
+    <option name="pluginEnabled" value="true" />
+    <option name="codeFoldingTwigRoute" value="false" />
+    <option name="codeFoldingTwigTemplate" value="false" />
+    <option name="codeFoldingTwigConstant" value="false" />
+    <option name="featureTwigIcon" value="false" />
+  </component>
+</project>

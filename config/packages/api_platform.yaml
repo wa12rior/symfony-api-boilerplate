@@ -1,0 +1,15 @@
+api_platform:
+  defaults:
+    normalization_context:
+      skip_null_values: false
+    pagination_client_enabled: true
+    pagination_client_items_per_page: true
+  collection:
+    pagination:
+      items_per_page_parameter_name: itemsPerPage
+      enabled_parameter_name: pagination
+  #  exception_to_status:
+  #    ApiPlatform\Symfony\Validator\Exception\ValidationException: !php/const Symfony\Component\HttpFoundation\Response::HTTP_UNPROCESSABLE_ENTITY
+  mapping:
+    paths:
+      - '%kernel.project_dir%/src/Core/Entity'

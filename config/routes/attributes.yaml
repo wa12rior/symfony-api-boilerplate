@@ -1,0 +1,9 @@
+controllers:
+  resource:
+    path: ../../src/Auth/Controller/
+    namespace: App\Auth\Controller
+  type: attribute
+
+kernel:
+  resource: App\Kernel
+  type: attribute

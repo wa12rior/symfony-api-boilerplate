@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  ###> doctrine/doctrine-bundle ###
+  database:
+    ports:
+      - "5432"
+  ###< doctrine/doctrine-bundle ###
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  ###> symfony/mailer ###
+  mailer:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+###< symfony/mailer ###
