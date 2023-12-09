@@ -57,7 +57,11 @@ class MovieTest extends ApiTestCase
     {
         $client = $this->getAuthenticatedClient();
 
-        $response = $client->request('GET', self::COLLECTION_IRI, ['query' => ['recommendationAlgorithm' => 'RANDOM_THREE']]);
+        $response = $client->request(
+            'GET',
+            self::COLLECTION_IRI,
+            ['query' => ['recommendationAlgorithm' => 'RANDOM_THREE']]
+        );
 
         $jsonResponse = json_decode($response->getContent(false), true);
 

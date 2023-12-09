@@ -8,7 +8,6 @@ use App\Core\Enum\RecommendationAlgorithm;
 
 final class MoreThanOneWordRecommendation implements MovieRecommendation
 {
-
     public function recommend(RecommendationAlgorithm $recommendationAlgorithm, array $movies): array
     {
         $results = [];
