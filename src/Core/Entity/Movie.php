@@ -4,6 +4,8 @@ namespace App\Core\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\GetCollection;
+use App\Core\Controller\MoviesRecommendationAction;
+use App\Core\DTO\Request\RecommendationRequest;
 use App\Core\Repository\MovieRepository;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
@@ -13,12 +15,14 @@ use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Timestampable\Timestampable;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Bridge\Doctrine\Types\UuidType;
-use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Uid\Uuid;
 
 #[ApiResource(
     operations: [
-        new GetCollection(normalizationContext: ['groups' => ['address:view']]),
+        new GetCollection(
+            controller: MoviesRecommendationAction::class,
+            input: RecommendationRequest::class,
+        )
     ],
 )]
 #[Entity(repositoryClass: MovieRepository::class)]
@@ -29,7 +33,6 @@ class Movie implements Blameable, Timestampable
 
     #[Id]
     #[Column(type: UuidType::NAME, unique: true)]
-    #[Groups(['address:view'])]
     private ?Uuid $id;
 
     public function __construct()

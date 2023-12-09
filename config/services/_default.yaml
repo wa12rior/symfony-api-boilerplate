@@ -7,6 +7,10 @@ services:
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
   _instanceof:
+    App\Core\Recommendation\MovieRecommendation:
+      tags:
+        - { name: app.movie.recommendation }
+
     App\Common\CQRS\Handler\CommandHandler:
       tags:
         - { name: messenger.message_handler, bus: command.bus }
@@ -24,3 +28,8 @@ services:
     exclude:
       - '../../src/Core/*/DependencyInjection/'
       - '../../src/Core/*/Entity/'
+      - '../../src/Core/*/DTO/'
+
+  App\Core\Controller\MoviesRecommendationAction:
+    arguments:
+      $recommendationStrategies: !tagged_iterator app.movie.recommendation
