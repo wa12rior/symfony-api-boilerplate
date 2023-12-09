@@ -8,21 +8,15 @@
     "ext-ctype": "*",
     "ext-iconv": "*",
     "api-platform/core": "^3.1",
-    "aws/aws-sdk-php": "^3.275",
     "doctrine/doctrine-bundle": "^2.10",
     "doctrine/doctrine-migrations-bundle": "^3.2",
     "doctrine/orm": "^2.15",
-    "dompdf/dompdf": "^2.0",
-    "firebase/php-jwt": "^6.8",
-    "gaufrette/aws-s3-adapter": "^0.4.0",
     "gaufrette/extras": "^0.1.0",
     "gaufrette/local-adapter": "^0.4.0",
     "gedmo/doctrine-extensions": "^3.13",
-    "gesdinet/jwt-refresh-token-bundle": "^1.1",
     "google/apiclient": "^2.15",
     "guzzlehttp/guzzle": "*",
     "knplabs/gaufrette": "^0.11.1",
-    "lexik/jwt-authentication-bundle": "^2.19",
     "mikehaertl/phpwkhtmltopdf": "^2.5",
     "nelmio/cors-bundle": "^2.3",
     "phpdocumentor/reflection-docblock": "^5.3",
@@ -108,8 +102,7 @@
   "scripts": {
     "auto-scripts": {
       "cache:clear": "symfony-cmd",
-      "assets:install %PUBLIC_DIR%": "symfony-cmd",
-      "lexik:jwt:generate-keypair --skip-if-exists": "symfony-cmd"
+      "assets:install %PUBLIC_DIR%": "symfony-cmd"
     },
     "test-coverage": "XDEBUG_MODE=coverage bin/phpunit --coverage-html coverage",
     "post-install-cmd": [

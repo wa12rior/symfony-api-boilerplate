@@ -6,8 +6,6 @@ namespace App\Tests\Utility;
 
 use ApiPlatform\Symfony\Bundle\Test\ApiTestCase;
 use ApiPlatform\Symfony\Bundle\Test\Client;
-use App\Auth\Repository\UserRepository;
-use App\Common\Fixtures\UserFixtures;
 
 trait ClientHelper
 {
@@ -28,13 +26,13 @@ trait ClientHelper
         $client = static::createClient(defaultOptions: [
             'headers' => array_merge($defaultArray, $headers)
         ]);
-        $userRepository = static::getContainer()->get(UserRepository::class);
-
-        // retrieve the test user
-        $testUser = $userRepository->find(UserFixtures::USER_ID);
-
-        // simulate $testUser being logged in
-        $client->loginUser($testUser);
+//        $userRepository = static::getContainer()->get(UserRepository::class);
+//
+//        // retrieve the test user
+//        $testUser = $userRepository->find(UserFixtures::USER_ID);
+//
+//        // simulate $testUser being logged in
+//        $client->loginUser($testUser);
 
         return $client;
     }

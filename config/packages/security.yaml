@@ -3,89 +3,13 @@ security:
   password_hashers:
     Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
   # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
-  providers:
-    app_user_provider:
-      id: App\Auth\API\Provider\UserProvider
-    subscriber_user_provider:
-      id: App\Auth\API\Provider\SubscriberUserProvider
-    app_user_providers:
-      chain:
-        providers: [ 'app_user_provider', 'subscriber_user_provider' ]
-    jwt:
-      lexik_jwt:
-        class: App\Core\Entity\Subscriber\Subscriber
   firewalls:
-    subscriber:
-      pattern: ^/api/login/subscribers
-      lazy: true
-      custom_authenticator: App\Auth\Authenticator\SubscriberJsonLoginAuthenticator
-      provider: subscriber_user_provider
-
-    subscriber_refresh:
-      pattern: ^/api/token/refresh
-      lazy: true
-      refresh_jwt:
-        provider: subscriber_user_provider
-        check_path: /api/token/refresh
-
-    subscriber_api:
-      pattern: ^/api/documents/\w+|/api/document_subscriber_todos(/\w)*|/api/acceptance_signatures(/\w)*|/api/generated_signatures(/\w)*|/api/own_signatures(/\w)*|/api/document_subscribers(.)*|/api/document_media(.)*|/api/in_post_shipments(.)*
-      stateless: true
-      provider: app_user_providers
-      custom_authenticator: App\Auth\Authenticator\UserSubscriberAuthenticator
-
-    public:
-      pattern: ^/api/public
-      stateless: true
-      security: false
-
-    docs:
-      pattern: ^/api/docs
-      stateless: true
-      security: false
-
-    site_fill:
-      pattern: ^/api/sites/view
-      stateless: true
-      security: false
-
-    workflows_preview:
-      pattern: ^/api/workflows/preview
-      stateless: true
-      security: false
-
-    resend:
-      pattern: ^/api/resend
-      stateless: true
-      security: false
-
-    refresh:
-      pattern: ^/api/refresh
-      stateless: true
-      security: false
-
-    confirm:
-      pattern: ^/api/confirm
-      stateless: true
-      security: false
-
-    register:
-      pattern: ^/api/register
-      stateless: true
-      security: false
-
-    login:
-      pattern: ^/api/login
-      stateless: true
-      security: false
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
       security: false
     main:
-      pattern: ^/api
       lazy: true
-      provider: app_user_provider
-      custom_authenticator: App\Auth\Security\JWTAuthenticator
+      security: false
 
     # activate different ways to authenticate
     # https://symfony.com/doc/current/security.html#the-firewall
@@ -95,12 +19,6 @@ security:
 
   access_control:
     - { path: ^/$, roles: PUBLIC_ACCESS } # Allows accessing the Swagger UI
-    - { path: ^/api/(login|token/refresh), roles: PUBLIC_ACCESS }
-    - { path: ^/api/subscribers/login, roles: PUBLIC_ACCESS }
-    - { path: ^/api/subscribers,       roles: IS_AUTHENTICATED_FULLY }
     - { path: ^/docs, roles: PUBLIC_ACCESS } # Allows accessing API documentations and Swagger UI docs
-    - { path: ^/api/confirm, roles: PUBLIC_ACCESS }
-    - { path: ^/api/register, roles: PUBLIC_ACCESS }
-    - { path: ^/api/login, roles: PUBLIC_ACCESS }
     - { path: ^/api/docs, roles: PUBLIC_ACCESS }
-    - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
+    - { path: ^/api, roles: PUBLIC_ACCESS }

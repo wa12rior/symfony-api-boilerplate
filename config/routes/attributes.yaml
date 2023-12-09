@@ -1,7 +1,7 @@
 controllers:
   resource:
-    path: ../../src/Auth/Controller/
-    namespace: App\Auth\Controller
+    path: ../../src/Core/Controller/
+    namespace: App\Core\Controller
   type: attribute
 
 kernel:

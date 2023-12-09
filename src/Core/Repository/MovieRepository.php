@@ -2,26 +2,26 @@
 
 namespace App\Core\Repository;
 
-use App\Core\Entity\Address;
+use App\Core\Entity\Movie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Address>
+ * @extends ServiceEntityRepository<Movie>
  *
- * @method Address|null find($id, $lockMode = null, $lockVersion = null)
- * @method Address|null findOneBy(array $criteria, array $orderBy = null)
- * @method Address[]    findAll()
- * @method Address[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Movie|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Movie|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Movie[]    findAll()
+ * @method Movie[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class AddressRepository extends ServiceEntityRepository
+class MovieRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Address::class);
+        parent::__construct($registry, Movie::class);
     }
 
-    public function save(Address $entity, bool $flush = false): void
+    public function save(Movie $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class AddressRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Address $entity, bool $flush = false): void
+    public function remove(Movie $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class AddressRepository extends ServiceEntityRepository
     }
 
     //    /**
-    //     * @return Address[] Returns an array of Address objects
+    //     * @return Movie[] Returns an array of Movie objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -54,7 +54,7 @@ class AddressRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Address
+    //    public function findOneBySomeField($value): ?Movie
     //    {
     //        return $this->createQueryBuilder('a')
     //            ->andWhere('a.exampleField = :val')
