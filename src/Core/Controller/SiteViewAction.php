@@ -16,8 +16,8 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 #[AsController]
 class SiteViewAction extends AbstractController
 {
-    public function __construct(
-    ) {
+    public function __construct()
+    {
     }
 
     public function __invoke(Request $request): JsonResponse

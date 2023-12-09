@@ -1,4 +1,4 @@
-name: Deploy stage
+name: Deploy <env>
 on:
   workflow_dispatch:
   workflow_run:
