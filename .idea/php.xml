@@ -198,6 +198,7 @@
       <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/vendor/rector/rector" />
       <path value="$PROJECT_DIR$/vendor/gaufrette/extras" />
+      <path value="$PROJECT_DIR$/vendor/phpcompatibility/php-compatibility" />
     </include_path>
   </component>
   <component name="PhpInterpreters">

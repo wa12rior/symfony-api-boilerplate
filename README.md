@@ -1,4 +1,4 @@
-# Symfony API Boilerplate 
+# Symfony API Boilerplate
 
 ## Installation
 
@@ -12,10 +12,14 @@ Before you start:
 - Install php-fpm globally,
 
 ```shell
-git clone 
+git clone git@github.com:wa12rior/symfony-api-boilerplate.git
+# install and copy env vars
 composer install
 cp .env.example .env.local
+# start docker 
 docker compose up -d
+# create database
+make refresh_db
 ```
 
 ## Testing

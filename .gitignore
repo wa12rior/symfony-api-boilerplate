@@ -32,3 +32,5 @@
 ###< lexik/jwt-authentication-bundle ###
 
 .php-cs-fixer.cache
+
+/.idea
