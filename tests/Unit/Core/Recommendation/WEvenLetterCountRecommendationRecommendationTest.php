@@ -26,6 +26,8 @@ class WEvenLetterCountRecommendationRecommendationTest extends TestCase
     }
 
     /**
+     * @param string[] $expected
+     * @param string[] $given
      * @dataProvider moviesData
      */
     public function testShouldRecommendMovies(array $given, array $expected): void
@@ -35,6 +37,10 @@ class WEvenLetterCountRecommendationRecommendationTest extends TestCase
         self::assertEquals($expected, $result);
     }
 
+
+    /**
+     * @return mixed[]
+     */
     public function moviesData(): array
     {
         return [
