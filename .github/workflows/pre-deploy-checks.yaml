@@ -83,8 +83,8 @@ jobs:
         run: bin/console --env=test d:d:c --if-not-exists
       - name: Run migrations
         run: bin/console --env=test doctrine:mi:mi -n
-      - name: Load fixtures
-        run: bin/console --env=test d:f:l -n
+#      - name: Load fixtures
+#        run: bin/console --env=test d:f:l -n
       - name: PHPUnit
         run: vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-html coverage
       - name: Upload coverage report
