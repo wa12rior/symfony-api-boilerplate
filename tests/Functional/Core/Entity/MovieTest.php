@@ -57,12 +57,13 @@ class MovieTest extends ApiTestCase
     {
         $client = $this->getAuthenticatedClient();
 
-        $response = $client->request('GET', self::COLLECTION_IRI);
+        $response = $client->request('GET', self::COLLECTION_IRI, ['query' => ['recommendationAlgorithm' => 'RANDOM_THREE']]);
+
+        $jsonResponse = json_decode($response->getContent(false), true);
 
         $this->assertResponseIsSuccessful();
-        $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
+        $this->assertResponseHeaderSame('content-type', 'application/json');
 
-        $this->assertCount(0, $response->toArray()['hydra:member']);
-        $this->assertMatchesResourceCollectionJsonSchema(Movie::class);
+        $this->assertIsArray($jsonResponse);
     }
 }

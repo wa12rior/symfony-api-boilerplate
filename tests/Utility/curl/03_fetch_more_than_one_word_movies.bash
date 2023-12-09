@@ -1,0 +1,1 @@
+curl --location 'http://localhost:8000/api/movies?recommendationAlgorithm=MORE_THAN_ONE_WORD'
